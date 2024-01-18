@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +12,11 @@
   <style>
     body {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
       background-color: #3498db; /* Fondo azul */
-    }
-
-    #container {
-      text-align: center; /* Alinea el contenido al centro */
     }
 
     #meet {
@@ -31,13 +25,10 @@
     }
   </style>
 </head>
-
+  
 <body>
-
-  <div id="container">
-    <h1>Videollamada</h1>
-    <div id="meet"></div>
-  </div>
+  
+  <div id="meet"></div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -51,7 +42,7 @@
         userInfo: {
           displayName: "Usuario Invitado"
         },
-        configOverwrite: {
+        configOverwrite: { 
           startWithAudioMuted: true,
           startWithVideoMuted: true,
           prejoinPageEnabled: false,
@@ -74,5 +65,4 @@
     });
   </script>
 </body>
-
 </html>
