@@ -27,37 +27,40 @@
 </head>
 <body>
   <h1>Ejemplo con servidor meet.jit.si</h1>
-  
+  <div id="meet"></div>
+
   <script>
-    // Configuración de Jitsi Meet
-    const domain = "meet.jit.si";
-    const options = {
-      roomName: "Sala1",
-      width: "100%",
-      height: "100%",
-      parentNode: document.querySelector("#meet"),
-      userInfo: {
-        displayName: "Usuario Invitado"
-      },
-      configOverwrite: { 
-        startWithAudioMuted: true,
-        startWithVideoMuted: true,
-        prejoinPageEnabled: false,
-        disableDeepLinking: true
-      },
-      interfaceConfigOverwrite: {
-        filmStripOnly: false,
-        SHOW_JITSI_WATERMARK: false,
-        DEFAULT_REMOTE_DISPLAY_NAME: "Invitado"
-      }
-    };
+    document.addEventListener("DOMContentLoaded", function() {
+      // Configuración de Jitsi Meet
+      const domain = "meet.jit.si";
+      const options = {
+        roomName: "Sala1",
+        width: "100%",
+        height: "100%",
+        parentNode: document.querySelector("#meet"),
+        userInfo: {
+          displayName: "Usuario Invitado"
+        },
+        configOverwrite: { 
+          startWithAudioMuted: true,
+          startWithVideoMuted: true,
+          prejoinPageEnabled: false,
+          disableDeepLinking: true
+        },
+        interfaceConfigOverwrite: {
+          filmStripOnly: false,
+          SHOW_JITSI_WATERMARK: false,
+          DEFAULT_REMOTE_DISPLAY_NAME: "Invitado"
+        }
+      };
 
-    // Inicializamos la API de Jitsi Meet
-    const api = new JitsiMeetExternalAPI(domain, options);
+      // Inicializamos la API de Jitsi Meet
+      const api = new JitsiMeetExternalAPI(domain, options);
 
-    // Evento para manejar la conexión exitosa
-    api.addEventListener('videoConferenceJoined', () => {
-      console.log('Conexión exitosa');
+      // Evento para manejar la conexión exitosa
+      api.addEventListener('videoConferenceJoined', () => {
+        console.log('Conexión exitosa');
+      });
     });
   </script>
 </body>
